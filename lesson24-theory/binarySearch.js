@@ -22,7 +22,6 @@ function binarySearch(arr, el) {
       right = mid - 1;
     }
   }
-
   return -1;
 }
 
