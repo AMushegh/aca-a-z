@@ -1,0 +1,15 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.green {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+}
+
+.red {
+  width: 55px;
+  height: 55px;
+  background-color: red;
+}
