@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "name": "lesson47-theory-advanced",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mushegh Andrasyan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "lodash": "^4.17.21"
+  }
+}
