@@ -1,13 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Flex, Card, Button, Typography } from "antd";
-import { CartContext } from "../providers/CartProvider";
+import { useCart } from "../hooks/useCart";
+import {
+  addToCartWithCall,
+  removeFromCart,
+} from "../helpers/cartActionCreators";
 
 const { Text } = Typography;
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
-  const { addToCart } = useContext(CartContext);
+  const { dispatch } = useCart();
 
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products/").then(({ data }) => {
@@ -34,8 +38,17 @@ export const Products = () => {
             >
               <Flex vertical>
                 <Text>{product.title}</Text>
-                <Button type="primary" onClick={() => addToCart(product.id)}>
+                <Button
+                  type="primary"
+                  onClick={() => addToCartWithCall(product.id).then(dispatch)}
+                >
                   Add to Cart
+                </Button>
+                <Button
+                  type="dashed"
+                  onClick={() => dispatch(removeFromCart(product.id))}
+                >
+                  Remove from Cart
                 </Button>
               </Flex>
             </Card>
